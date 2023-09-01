@@ -1,12 +1,11 @@
-package ru.job4j.сheckstyle;
+package ru.job4j.checkstyle;
 
 public class Broken {
 
     private int sizeOfEmpty = 10;
-
     public String surname;
 
-  //  public static final String newValue() = "";
+    public final String newValue = "";
 
     void echo() { }
 
@@ -15,4 +14,13 @@ public class Broken {
             System.out.println(obj);
         }
     }
+
+    void method(int a, int b, int c, int d, int e, int f, int g) {
+
+    }
+
+    String name;
+
+    Broken() { }
+
 }
