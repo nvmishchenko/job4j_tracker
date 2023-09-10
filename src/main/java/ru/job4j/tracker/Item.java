@@ -43,11 +43,7 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item{"
-                + "id=" + id
-                + ", name='" + name + '\''
-                + ", created=" + created.format(FORMATTER)
-         //       + ", formater" + FORMATTER
-                + '}';
+        return "Текущие дата и время после форматирования: "
+                + created.format(FORMATTER);
     }
 }
