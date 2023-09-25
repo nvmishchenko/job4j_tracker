@@ -84,7 +84,6 @@ public class TrackerTest {
         boolean rsl = tracker.delete(1000);
         assertThat(tracker.findById(item.getId()).getName()).isEqualTo("Bug");
         assertThat(rsl).isFalse();
-    //    assertThat(tracker.findById(item.getId()).getName())).isNull();
     }
 
     @Test
