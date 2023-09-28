@@ -33,16 +33,12 @@ public class AnalyzeByMap {
         List<Label> labels = new ArrayList<>();
         for (Pupil pupil : pupils) {
              for (Subject subject : pupil.subjects()) {
-                 String name = subject.name();
-                 int score = subject.score();
-                 map.put(name, map.getOrDefault(name, 0) + score);
+                 map.put(subject.name(), map.getOrDefault(subject.name(), 0) + subject.score());
              }
         }
         for (Map.Entry<String, Integer> mp : map.entrySet()) {
             String subjectName = mp.getKey();
-            int score = mp.getValue();
-            int count = pupils.size();
-            Label label = new Label(subjectName, score / count);
+            Label label = new Label(subjectName, mp.getValue() / pupils.size());
             labels.add(label);
         }
         return labels;
@@ -57,8 +53,8 @@ public class AnalyzeByMap {
             }
             Label label = new Label(pupil.name(), rsl);
             labels.add(label);
-            labels.sort(Comparator.naturalOrder());
         }
+        labels.sort(Comparator.naturalOrder());
         return labels.get(labels.size() - 1);
     }
 
@@ -67,16 +63,11 @@ public class AnalyzeByMap {
         List<Label> labels = new ArrayList<>();
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
-                String name = subject.name();
-                int score = subject.score();
-                map.put(name, map.getOrDefault(name, 0) + score);
+                map.put(subject.name(), map.getOrDefault(subject.name(), 0) + subject.score());
             }
         }
         for (Map.Entry<String, Integer> mp : map.entrySet()) {
-            String subjectName = mp.getKey();
-            int score = mp.getValue();
-            Label label = new Label(subjectName, score);
-            labels.add(label);
+            labels.add(new Label(mp.getKey(), mp.getValue()));
         }
         labels.sort(Comparator.naturalOrder());
         return labels.get(labels.size() - 1);
